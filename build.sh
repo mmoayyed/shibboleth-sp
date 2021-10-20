@@ -1,0 +1,2 @@
+#!/bin/bash
+docker build --tag="mmoayyed/shibboleth-sp" . && docker run --rm -p 9443:443 --name="shib" --env CURLOPT_SSL_VERIFYPEER=false --add-host="mmoayyed.unicon.net:192.168.65.2" mmoayyed/shibboleth-sp

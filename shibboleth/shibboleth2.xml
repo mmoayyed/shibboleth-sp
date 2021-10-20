@@ -90,7 +90,7 @@
     points into to this section (or to the defaults here).
     -->
     <ApplicationDefaults entityID="https://sp.example.org/shibboleth"
-        REMOTE_USER="eppn subject-id pairwise-id persistent-id"
+        REMOTE_USER="eppn uid subject-id pairwise-id persistent-id"
         metadataAttributePrefix="Meta-"
         encryption="back"
         cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
@@ -271,10 +271,8 @@
         <AttributeExtractor type="Metadata" errorURL="errorURL" DisplayName="displayName"/>
 
         <!-- Use a SAML query if no attributes are supplied during SSO. -->
-        <AttributeResolver type="Query" subjectMatch="true">
-            <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="eppn" />
-        </AttributeResolver>
-
+        <AttributeResolver type="Query" subjectMatch="true" />
+           
         <!-- Default filtering policy for recognized attributes, lets other data pass. -->
         <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
 
